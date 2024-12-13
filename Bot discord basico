@@ -21,6 +21,25 @@ async def repit(ctx, palabraRepetida, cantidadVeces):
     for i in range(cantidadVeces):
         palabraTotal += palabraRepetida + " "
     await ctx.send(palabraTotal)
+
+@bot.command()
+async def cal(ctx, tipodecalculo, n1, n2):
+    resultado = n1
+    n1 = int(n1)
+    n2 = int(n2)
+    if tipodecalculo == "sum":
+        await ctx.send(n1 + n2)
+    if tipodecalculo == "res":
+        await ctx.send(n1 - n2)
+    if tipodecalculo == "mul":
+        await ctx.send(n1 * n2)
+    if tipodecalculo == "div":
+        if n2 == 0:
+            await ctx.send("no se puede dividir entre cero")
+        else:
+            await ctx.send(n1 / n2)
+    if tipodecalculo == "pot":
+        await ctx.send(n1 ** n2)
     
 @bot.command()
 async def heh(ctx, count_heh = 5):
